@@ -1,5 +1,5 @@
 # BasicProgramming
-With text to sql assignment 
+Text to Sql application 
 
 Developer: Thulani Ndlovu
 
