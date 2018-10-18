@@ -33,7 +33,7 @@ namespace SqlBuilder
             }
         }
         
-        puclic static void ConvertFormat2ToSql(string path, int id)
+        public static void ConvertFormat2ToSql(string path, int id)
         {
             using (StreamReader sr = new StreamReader(File.OpenRead(path)))
             {
