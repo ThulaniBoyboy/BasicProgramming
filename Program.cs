@@ -6,30 +6,34 @@ namespace SqlBuilder
 {
    public class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Please Select Format? 1 , 2 or 3");
-            int format = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please provide path to text file: ");
-            string path = Console.ReadLine();
-            Console.WriteLine("Please provide id: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-            switch (format)
+           
+            char formatFinder;
+            using (StreamReader sr = new StreamReader(File.OpenRead(args[0])))
             {
-                case 1:
-                    ConvertFormat1ToSql(path, id);
+                string firstline = sr.ReadLine();
+                formatFinder = firstline[0];
+            }
+                
+            switch (formatFinder)
+            {
+                case ' ':
+                    Console.WriteLine("Format doesn't exist");
+                  
                     break;
-                case 2:
-                    ConvertFormat2ToSql(path, id);
+                case'"':
+                    ConvertFormat2ToSql(args[0], Convert.ToInt32(args[1]));
                     break;
-                case 3:
-                    ConvertFormat3ToSql(path, id);
+                case '#':
+                    ConvertFormat3ToSql(args[0], Convert.ToInt32(args[1]));
                     break;
                 default:
-                    Console.WriteLine("Format doesn't exist");
+                   ConvertFormat1ToSql(args[0], Convert.ToInt32(args[1]));
                     break;
             }
 
+           
            
         }
 
