@@ -8,7 +8,28 @@ namespace SqlBuilder
     {
         static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Please Select Format? 1 , 2 or 3");
+            int format = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please provide path to text file: ");
+            string path = Console.ReadLine();
+            Console.WriteLine("Please provide id: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            switch (format)
+            {
+                case 1:
+                    ConvertFormat1ToSql(path, id);
+                    break;
+                case 2:
+                    ConvertFormat2ToSql(path, id);
+                    break;
+                case 3:
+                    ConvertFormat3ToSql(path, id);
+                    break;
+                default:
+                    Console.WriteLine("Format doesn't exist");
+                    Console.ReadLine();
+                    break;
+            }
            
         }
 
