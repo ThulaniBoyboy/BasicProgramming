@@ -61,7 +61,7 @@ namespace SqlBuilder
             }
         }
         
-        public static void ConvertFormat2ToSql(string path, int id)
+              public static void ConvertFormat2ToSql(string path, int id)
         {
            try{
                 using (StreamReader sr = new StreamReader(File.OpenRead(path)))
@@ -75,7 +75,7 @@ namespace SqlBuilder
 
                     int x = 0;
                     for (int i = 0; i < myA.Length / 5; i++)
-                        sw.WriteLine("insert into customers(id, first_name, last_name, gender, date_of_birth, marital_status) values({0}, '{1}', '{2}', '{5}', '{3}', {4})", id++, char.ToUpper(myA[x].Trim('"')[0]) + myA[x++].Substring(2).ToLower().Trim('"'), char.ToUpper(myA[x].Trim('"')[0]) + myA[x++].Substring(2).ToLower().Trim('"'), myA[x++].Trim('"'), myA[x++].Trim('"') == "Married" ? true: false , myA[x++].Trim('\r').Trim('"') == "Male"? 'M': 'F');
+                        sw.WriteLine("insert into customers(id, first_name, last_name, gender, date_of_birth, marital_status) values({0}, '{1}', '{2}', '{5}', '{3}', {4})", id++, char.ToUpper(myA[x].Trim('"')[0]) + myA[x++].Substring(2).ToLower().Trim('"'), char.ToUpper(myA[x].Trim('"')[0]) + myA[x++].Substring(2).ToLower().Trim('"'), myA[x].Substring(9, 2)  + "/" + myA[x].Substring(6, 2) + "/" + myA[x++].Substring(1, 4), myA[x++].Trim('"') == "Married" ? true: false , myA[x++].Trim('\r').Trim('"') == "Male"? 'M': 'F');
                     Console.WriteLine("Conversion Successfull!!!");
 
                 }
@@ -86,6 +86,7 @@ namespace SqlBuilder
                 Console.WriteLine(ex);
             }
 }
+
 public static void ConvertFormat3ToSql(string path, int id)
 {
    try{
