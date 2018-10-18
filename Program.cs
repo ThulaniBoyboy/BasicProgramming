@@ -12,7 +12,7 @@ namespace SqlBuilder
            
         }
 
-        private static void ConvertTextToSql(string path, int id)
+        private static void ConvertFormat1ToSql(string path, int id)
         {
             using (StreamReader sr = new StreamReader(File.OpenRead(path)))
             {
@@ -38,7 +38,7 @@ namespace SqlBuilder
                
             }
         }
-        private static void ConvertFile2ToSql(string path, int id)
+        private static void ConvertFormat2ToSql(string path, int id)
         {
             using (StreamReader sr = new StreamReader(File.OpenRead(path)))
             {
@@ -65,7 +65,7 @@ namespace SqlBuilder
 
             }
         }
-        private static void ConvertFile3ToSql(string path, int id)
+        private static void ConvertFormat3ToSql(string path, int id)
         {
             using (StreamReader sr = new StreamReader(File.OpenRead(path)))
             {
