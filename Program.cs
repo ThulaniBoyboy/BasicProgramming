@@ -88,7 +88,7 @@ namespace SqlBuilder
     
     private static string[] CleanFormat2 (StreamReader strmrdr) {
     
-                string my = sr.ReadToEnd();
+                string my = strmrdr.ReadToEnd();
                 my = my.Replace("\n", "|");
                 my = my.Replace('|', ' ');
                 my = my.Replace('-', '/');
@@ -97,7 +97,7 @@ namespace SqlBuilder
         
     private static string[] CleanFormat3 (StreamReader strmrdr) {  
         
-                string my = sr.ReadToEnd();
+                string my = strmrdr.ReadToEnd();
                 my = my.Replace("\n", " ");
                 my = my.Replace("#", "");
                 string thingstoremove = " name: |surname: |dob: |married: |gender: ";
